@@ -89,21 +89,29 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 ?>
  
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Login</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <style>
-        body{ font: 14px sans-serif; }
-        .wrapper{ width: 360px; padding: 20px; }
-    </style>
+<title>Admin Login</title>
+<link rel="icon" href="system_img/favicon.png">
+<link rel="stylesheet" href="stylesheets/register.css">
 </head>
 <body>
-    <div class="wrapper">
-        <h2>Login</h2>
-        <p>Please fill in your credentials to login.</p>
-
+<div class="container-fluid bg-secondary py-3">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-md-9 col-xl-10">
+                <h2 class="text-light">NewsPortal</h2>
+            </div>
+            <div class="col-sm-6 col-md-3 col-xl-2">
+                <a type="button" href="register.php" class="btn btn-outline-light w-100" target="_blank">Register</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid py-5 back_main">
+    <div class="container my-5 py-5">
+            <h2 class="text-light">Login</h2>
+            <p class="text-light">Please fill in your credentials to login into the admin panel.</p>
         <?php 
         if(!empty($login_err)){
             echo '<div class="alert alert-danger">' . $login_err . '</div>';
@@ -112,20 +120,27 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <div class="form-group">
-                <label>Username</label>
-                <input type="text" name="username" class="form-control <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>">
+                <label class="text-light mt-2">Username</label>
+                <input type="text" name="username" class="form-control text-light bg-transparent <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>">
                 <span class="invalid-feedback"><?php echo $username_err; ?></span>
             </div>    
             <div class="form-group">
-                <label>Password</label>
-                <input type="password" name="password" class="form-control <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>">
+                <label class="text-light mt-2">Password</label>
+                <input type="password" name="password" class="form-control text-light bg-transparent <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>">
                 <span class="invalid-feedback"><?php echo $password_err; ?></span>
             </div>
-            <div class="form-group">
-                <input type="submit" class="btn btn-primary" value="Login">
+            <div class="form-group mt-3">
+                    <input type="submit" class="btn btn-success" value="Login">
+                    <input type="reset" class="btn btn-danger ms-2" value="Reset">
             </div>
-            <p>Don't have an account? <a href="register.php">Sign up now</a>.</p>
+            <p class="text-light mt-2">Don't have an account? <a class="btn btn-sm btn-outline-secondary border-0 ms-1" href="register.php" target="_blank">Register here</a></p>
         </form>
     </div>
+    </div>
+<div class="container-fluid bg-secondary text-light">
+    <div class="container">
+        <p class="py-1">&copy Developed by Navneet Thakur</p>
+    </div>
+</div> 
 </body>
 </html>

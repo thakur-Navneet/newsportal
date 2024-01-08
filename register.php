@@ -96,40 +96,57 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 ?>
  
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <title>Sign Up</title>
-    <style>
-        body{ font: 14px sans-serif; }
-        .wrapper{ width: 360px; padding: 20px; }
-    </style>
+    <title>Admin Register</title>
+<link rel="icon" href="system_img/favicon.png">
+<link rel="stylesheet" href="stylesheets/register.css">
 </head>
 <body>
-    <div class="wrapper">
-        <h2>Sign Up</h2>
-        <p>Please fill this form to create an account.</p>
-        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-            <div class="form-group">
-                <label>Username</label>
-                <input type="text" name="username" class="form-control <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>">
-                <span class="invalid-feedback"><?php echo $username_err; ?></span>
-            </div>    
-            <div class="form-group">
-                <label>Password</label>
-                <input type="password" name="password" class="form-control <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $password; ?>">
-                <span class="invalid-feedback"><?php echo $password_err; ?></span>
+<div class="container-fluid bg-secondary py-3">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-md-9 col-xl-10">
+                <h2 class="text-light">NewsPortal</h2>
             </div>
-            <div class="form-group">
-                <label>Confirm Password</label>
-                <input type="password" name="confirm_password" class="form-control <?php echo (!empty($confirm_password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $confirm_password; ?>">
-                <span class="invalid-feedback"><?php echo $confirm_password_err; ?></span>
+            <div class="col-sm-6 col-md-3 col-xl-2">
+                <a type="button" href="login.php" class="btn btn-outline-light w-100" target="_blank">Login</a>
             </div>
-            <div class="form-group">
-                <input type="submit" class="btn btn-primary" value="Submit">
-                <input type="reset" class="btn btn-secondary ml-2" value="Reset">
-            </div>
-            <p>Already have an account? <a href="login.php">Login here</a>.</p>
-        </form>
-    </div>    
+        </div>
+    </div>
+</div>
+<div class="container-fluid py-5 back_main">
+    <div class="container my-5 py-5">
+            <h2 class="text-light">Sign Up</h2>
+            <p class="text-light">If you don't have any account create first </p>
+            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+                <div class="form-group">
+                    <label class="text-light mt-2">Username</label>
+                    <input type="text" name="username" class="form-control text-light bg-transparent <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>">
+                    <span class="invalid-feedback"><?php echo $username_err; ?></span>
+                </div>    
+                <div class="form-group">
+                    <label class="text-light mt-2">Password</label>
+                    <input type="password" name="password" class="form-control text-light bg-transparent <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $password; ?>">
+                    <span class="invalid-feedback"><?php echo $password_err; ?></span>
+                </div>
+                <div class="form-group">
+                    <label class="text-light mt-2">Confirm Password</label>
+                    <input type="password" name="confirm_password" class="form-control text-light bg-transparent <?php echo (!empty($confirm_password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $confirm_password; ?>">
+                    <span class="invalid-feedback"><?php echo $confirm_password_err; ?></span>
+                </div>
+                <div class="form-group mt-3">
+                    <input type="submit" class="btn btn-success" value="Submit">
+                    <input type="reset" class="btn btn-danger ms-2" value="Reset">
+                </div>
+                <p class="text-light mt-2">Already have an account? <a class="btn btn-sm btn-outline-secondary border-0 ms-1" href="login.php" target="_blank">Login here</a></p>
+            </form>
+    </div>
+</div>  
+<div class="container-fluid bg-secondary text-light">
+    <div class="container">
+        <p class="py-1">&copy Developed by Navneet Thakur</p>
+    </div>
+</div> 
 </body>
 </html>
