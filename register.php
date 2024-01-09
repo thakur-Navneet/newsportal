@@ -99,7 +99,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <html>
 <head>
     <title>Admin Register</title>
-<link rel="icon" href="system_img/favicon.png">
 <link rel="stylesheet" href="stylesheets/register.css">
 </head>
 <body>
