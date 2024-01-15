@@ -1,3 +1,5 @@
+--database name : php_test
+
 -- creating main user id and password  
 -- O23MCA110202
 
