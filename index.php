@@ -8,7 +8,7 @@
             <p class="pe-xxl-5 text-light">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
                  ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
                  ex ea commodo consequat.</p>
-            <a type="button" class="btn btn-outline-light" href="login.php">Know More</a>
+            <a type="button" class="btn btn-outline-light" href="login.php">Login</a>
     </div>
     <div class="col-xl-4">
         <img class="img-fluid mt-3" src="system_img/banner_m.png" />
@@ -285,7 +285,6 @@
     </div>
     </div>
 </div>
-
 <script>
 // this script is used for the crousel
     $('.carousel .carousel-item').each(function () {
@@ -302,3 +301,108 @@
          next.children(':first-child').clone().appendTo($(this)); 
          } });
 </script>
+
+<div  class="container-fluid Newsletter py-5">
+<div class="container">
+    <div class="row">
+         <div class="col-xl-7">
+            <h3 class="text-end text-light">Subscribe to our Newsletter</h3>
+         </div>
+         <div class="col-xl-5">
+            <a type="button" class="btn btn-outline-light shadow" href="contact.php">Join Now</a>
+         </div>
+    </div>
+</div>
+</div>
+
+<div class="container-fluid py-5">
+    <div class="container">
+    <div class="row">
+        <div class="col-xl-4"></div>
+        <div class="col-xl-4">
+            <h2 class="portal-h1 text-center py-3">Sports News</h2>
+        </div>
+    </div>
+    <div class="row mt-5">
+    <div class="col-xl-4 mt-1">
+            <div class="card">
+            <img src="system_img/news_d.jpg" class="card-img-top" />
+            <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a class="btn btn-sm btn-outline-primary border-0 ms-1" href="#">Read More</a>
+            </div>
+            </div>
+        </div>
+        <div class="col-xl-4 mt-1">
+            <div class="card">
+            <img src="system_img/news_d.jpg" class="card-img-top" />
+            <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a class="btn btn-sm btn-outline-primary border-0 ms-1" href="#">Read More</a>
+            </div>
+            </div>
+        </div>
+        <div class="col-xl-4 mt-1">
+            <div class="card">
+            <img src="system_img/news_d.jpg" class="card-img-top" />
+            <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a class="btn btn-sm btn-outline-primary border-0 ms-1" href="#">Read More</a>
+            </div>
+            </div>
+        </div>
+
+    </div>
+    
+    
+    <div class="row mt-5">
+        <div class="col-xl-4"></div>
+        <div class="col-xl-4">
+            <a type="button" class="btn w-100 btn-outline-dark" href="#" style="font-size: 21px;">More News</a>
+        </div>
+    </div>
+    </div>
+    </div>
+
+
+
+
+    <!-- 
+            <div class="col-xl-4">
+                <div class="border g-0 row">
+                    <div class="col-xl-4">
+                        <img class="img-fluid" src="system_img/news_d.jpg"/>
+                        </div>
+                    <div class="col-xl-7 ms-1">
+                        <h5 class="text-dark">Lorem ipsum dolor sit amet, consectetur</h5>
+                        <a class="btn btn-sm btn-outline-primary border-0 ms-1" href="#">Read More</a>
+                    </div>
+                </div>
+                <div class="border g-0 row">
+                    <div class="col-xl-4">
+                        <img class="img-fluid" src="system_img/news_d.jpg"/>
+                        </div>
+                    <div class="col-xl-7 ms-1">
+                        <h5 class="text-dark">Lorem ipsum dolor sit amet, consectetur</h5>
+                        <a class="btn btn-sm btn-outline-primary border-0 ms-1" href="#">Read More</a>
+                    </div>
+                </div>
+                <div class="border g-0 row">
+                    <div class="col-xl-4">
+                        <img class="img-fluid" src="system_img/news_d.jpg"/>
+                        </div>
+                    <div class="col-xl-7 ms-1">
+                        <h5 class="text-dark">Lorem ipsum dolor sit amet, consectetur</h5>
+                        <a class="btn btn-sm btn-outline-primary border-0 ms-1" href="#">Read More</a>
+                    </div>
+                </div>
+            
+            </div>
+        -->
+
+
+
+<?php require_once "footer.php" ?>

@@ -8,7 +8,7 @@
 <body>
 <nav class="navbar navbar-fluid navbar-expand-lg navbar-dark bg-dark sticky-top">
     <div class="container">
-    <h1><a class="navbar-brand" href="#">NewsPortal </a></h1>
+    <h1><a class="navbar-brand" href="index.php">NewsPortal </a></h1>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon" ></span>
     </button>
@@ -31,7 +31,7 @@
           <a class="nav-link alpha_head_menu" href="#">Sports</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link alpha_head_menu" href="#">Contact</a>
+          <a class="nav-link alpha_head_menu" href="contact.php">Contact</a>
         </li>
         
           <!--

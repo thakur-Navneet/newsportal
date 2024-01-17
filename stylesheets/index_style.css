@@ -28,3 +28,14 @@ a.nav-link.alpha_head_menu:hover {color: wheat !important;}
     .carousel-inner .carousel-item-prev, .carousel-item-prev:not(.carousel-item-end)
     { transform: translateX(-25%) !important; }
 }
+
+/* newsletter */
+.Newsletter { background-image: url(img/bg1.jpg); background-size: cover;  background-position: center; }
+
+
+/* footer */
+.list_foot::before { content: '\2192';  position: absolute;  left: -24px;}
+.list_foot:hover {color: wheat !important;}
+
+/* contact page */
+.contact { border-bottom: 2px solid #cecece !important;}
