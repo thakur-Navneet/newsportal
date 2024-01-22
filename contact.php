@@ -13,6 +13,26 @@
 </div>
 </div>
 
+<?php
+// Define variables and initialize with empty values
+$nameErr = $emailErr = $numberErr = $subjectErr = $messageErr = "";
+$name = $email = $number = $subject = $message = "";
+ 
+if($_SERVER["REQUEST_METHOD"] == "GET"){
+    // Validate user name
+    if(empty($_POST["name"])){
+        $nameErr = "Please enter your name.";
+    }
+    else{
+        $name = filterName($_POST["name"]);
+        if($name == FALSE){
+            $nameErr = "Please enter a valid name.";
+        }
+    }
+}
+?>
+
+
 <div class="container-fluid py-5 contact">
     <div class="container">
     <div class="row">
@@ -23,19 +43,24 @@
     </div>
     <div class="row">
         <div class="col-xl-7 border p-3 shadow mt-3">
-            <form action="" method="">
-                <input type="text" class="form-control border-0 border-round contact mt-4" id="name_cont" placeholder="Name"/>
+            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="GET">
+                <input type="text" class="form-control border-0 border-round contact mt-4" id="name_cont" name="name" placeholder="Name" value="<?php echo $name; ?>" required/>
+                <span class="error"><?php echo $nameErr; ?></span>
 
-                <input type="email" class="form-control  border-0 border-round contact mt-4" id="email_cont" placeholder="Email"/>
+                <input type="email" class="form-control  border-0 border-round contact mt-4" id="email_cont" placeholder="Email" value="<?php echo $email; ?>" required/>
+                <span class="error"><?php echo $emailErr; ?></span>
 
-                <input type="number" class="form-control border-0 border-round  contact mt-4" id="Phone_cont" placeholder="Phone"/>
+                <input type="number" class="form-control border-0 border-round  contact mt-4" id="Phone_cont" placeholder="Phone" value="<?php echo $number; ?>" required/>
+                <span class="error"><?php echo $numberErr; ?></span>
                 
-                <input type="text" class="form-control  border-0 border-round contact mt-4" id="Subject" placeholder="Subject"/>
+                <input type="text" class="form-control  border-0 border-round contact mt-4" id="Subject" placeholder="Subject" value="<?php echo $subject; ?>" required/>
+                <span class="error"><?php echo $subjectErr; ?></span>
 
                 <label class="mt-4 for="textarea">Message</label>
                 <textarea class="form-control border-0 border-round mt-4 contact" rows="6" placeholder="Enter your message"> </textarea>
+                <span class="error"><?php echo $messageErr; ?></span>
 
-                <input type="submit" class="btn btn-outline-success mt-3 w-100" value="Submit"/>
+                <a type="submit" class="btn btn-outline-success mt-3 w-100" onclick="alert('The data has been submitted');" value="Submit"/>Submit</a>
             </form>
         </div>
         <div class="col-xl-5 ps-5 pt-3" style="color: #6488EA;">

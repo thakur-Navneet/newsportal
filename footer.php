@@ -11,12 +11,12 @@
         <div class="col-xl-3 mx-auto">
             <h3 class="text-light">Quick Links</h3>
             <ul class="d-grid">
-                <a href="#" class="text-light text-decoration-none position-relative list_foot">Home</a>
+                <a href="index.php" class="text-light text-decoration-none position-relative list_foot">Home</a>
                 <a href="#" class="text-light text-decoration-none position-relative list_foot">Trending News</a>
                 <a href="#" class="text-light text-decoration-none position-relative list_foot">Global News</a>
                 <a href="#" class="text-light text-decoration-none position-relative list_foot">National News</a>
                 <a href="#" class="text-light text-decoration-none position-relative list_foot">Sports News</a>
-                <a href="#" class="text-light text-decoration-none position-relative list_foot">Contact</a>
+                <a href="contact.php" class="text-light text-decoration-none position-relative list_foot">Contact</a>
             </ul>
         </div>
         
