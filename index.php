@@ -8,7 +8,7 @@
             <p class="pe-xxl-5 text-light">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
                  ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
                  ex ea commodo consequat.</p>
-            <a type="button" class="btn btn-outline-light" href="login.php">Login</a>
+            <a type="button" class="btn btn-outline-light" href="#">Know More</a>
     </div>
     <div class="col-xl-4">
         <img class="img-fluid mt-3" src="system_img/banner_m.png" />

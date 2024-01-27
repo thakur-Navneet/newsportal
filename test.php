@@ -1,4 +1,5 @@
 <?php
+/*
 // Functions to filter user inputs
 function filterName($field){
     // Sanitize user name
@@ -75,7 +76,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             $messageErr = "Please enter a valid comment.";
         }
     }
-    /*
+    
+         
+}
+*/
+
+ /*
     // Check input errors before sending email
     if(empty($nameErr) && empty($emailErr) && empty($messageErr)){
         // Recipient email address
@@ -95,9 +101,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         }
         
     }
-    */       
-}
+    */ 
 ?>
+<!--
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -134,5 +140,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <input type="submit" value="Send">
         <input type="reset" value="Reset">
     </form>
-</body>
+    </body>
 </html>
+-->
+<h1>Thank You</h1>
+    <p>Here is the information you have submitted:</p>
+    <ol>
+        <li><em>Name:</em> <?php echo $_POST["name"]?></li>
+        <li><em>Email:</em> <?php echo $_POST["email"]?></li>
+        <li><em>Email:</em> <?php echo $_POST["phone"]?></li>
+        <li><em>Subject:</em> <?php echo $_POST["subject"]?></li>
+        <li><em>Message:</em> <?php echo $_POST["message"]?></li>
+    </ol>

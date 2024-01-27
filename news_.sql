@@ -9,3 +9,12 @@ CREATE TABLE Admin_users (
     password VARCHAR(255) NOT NULL,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );
+
+CREATE TABLE cont_form (
+    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    phone varchar(100) NOT NULL UNIQUE,
+    subject varchar (100) NOT NULL,
+    message LONGTEXT 
+)

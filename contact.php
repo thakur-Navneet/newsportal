@@ -14,11 +14,44 @@
 </div>
 
 <?php
+// Functions to filter user inputs
+function filterName($field){
+    // Sanitize user name
+    $field = filter_var(trim($field), FILTER_SANITIZE_STRING);
+    
+    // Validate user name
+    if(filter_var($field, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/^[a-zA-Z\s]+$/")))){
+        return $field;
+    } else{
+        return FALSE;
+    }
+}    
+function filterEmail($field){
+    // Sanitize e-mail address
+    $field = filter_var(trim($field), FILTER_SANITIZE_EMAIL);
+    
+    // Validate e-mail address
+    if(filter_var($field, FILTER_VALIDATE_EMAIL)){
+        return $field;
+    } else{
+        return FALSE;
+    }
+}
+function filterString($field){
+    // Sanitize string
+    $field = filter_var(trim($field), FILTER_SANITIZE_STRING);
+    if(!empty($field)){
+        return $field;
+    } else{
+        return FALSE;
+    }
+}
+
 // Define variables and initialize with empty values
-$nameErr = $emailErr = $numberErr = $subjectErr = $messageErr = "";
-$name = $email = $number = $subject = $message = "";
+$nameErr = $emailErr = $phoneErr = $subjectErr = $messageErr = "";
+$name = $email = $phone = $subject = $message = "";
  
-if($_SERVER["REQUEST_METHOD"] == "GET"){
+if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Validate user name
     if(empty($_POST["name"])){
         $nameErr = "Please enter your name.";
@@ -29,7 +62,68 @@ if($_SERVER["REQUEST_METHOD"] == "GET"){
             $nameErr = "Please enter a valid name.";
         }
     }
+    // Validate email address
+    if(empty($_POST["email"])){
+        $emailErr = "Please enter your email address.";     
+    } else{
+        $email = filterEmail($_POST["email"]);
+        if($email == FALSE){
+            $emailErr = "Please enter a valid email address.";
+        }
+    }
+    // Validate phone
+    if(empty($_POST["phone"])){
+        $phoneErr = "Please enter your number.";
+    }
+    else{
+        $phone = $_POST["phone"];
+        if($phone == FALSE){
+            $phoneErr = "Please enter a valid number.";
+        }
+    }
+    // Validate message subject
+    if(empty($_POST["subject"])){
+        $subject = "";
+    } else{
+        $subject = filterString($_POST["subject"]);
+    }
+    
+    // Validate user comment
+    if(empty($_POST["message"])){
+        $messageErr = "Please enter your comment.";     
+    } else{
+        $message = filterString($_POST["message"]);
+        if($message == FALSE){
+            $messageErr = "Please enter a valid comment.";
+        }
+    }
 }
+/*
+// Escape user inputs for security
+$DBname = mysqli_real_escape_string($link, $_POST['name']);
+$DBemail = mysqli_real_escape_string($link, $_POST['email']);
+$DBphone = mysqli_real_escape_string($link, $_POST['phone']);
+$DBsubject = mysqli_real_escape_string($link, $_POST['subject']);
+$DBmessage = mysqli_real_escape_string($link, $_POST['message']);
+*/ 
+$DBname = $name;
+$DBemail = $email;
+$DBphone = $phone;
+$DBsubject = $subject;
+$DBmessage = $message;
+
+// Attempt insert query execution
+$sql = "INSERT INTO cont_form (name, email, phone, subject, message) VALUES ('$DBname', '$DBemail', '$DBphone', '$DBsubject', '$DBmessage')";
+if(mysqli_query($link, $sql)){
+    echo "<script> alert ('Records added successfully.');</script>";
+} else{
+    echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
+}
+ 
+// Close connection
+mysqli_close($link);
+
+
 ?>
 
 
@@ -43,24 +137,24 @@ if($_SERVER["REQUEST_METHOD"] == "GET"){
     </div>
     <div class="row">
         <div class="col-xl-7 border p-3 shadow mt-3">
-            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="GET">
-                <input type="text" class="form-control border-0 border-round contact mt-4" id="name_cont" name="name" placeholder="Name" value="<?php echo $name; ?>" required/>
+            <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
+                <input type="text" class="form-control border-0 border-round contact mt-4" id="name_cont" name="name" placeholder="Name"required="required"/>
                 <span class="error"><?php echo $nameErr; ?></span>
 
-                <input type="email" class="form-control  border-0 border-round contact mt-4" id="email_cont" placeholder="Email" value="<?php echo $email; ?>" required/>
+                <input type="email" class="form-control  border-0 border-round contact mt-4" id="email_cont" name="email" placeholder="Email" required="required"/>
                 <span class="error"><?php echo $emailErr; ?></span>
 
-                <input type="number" class="form-control border-0 border-round  contact mt-4" id="Phone_cont" placeholder="Phone" value="<?php echo $number; ?>" required/>
-                <span class="error"><?php echo $numberErr; ?></span>
+                <input type="text" class="form-control border-0 border-round  contact mt-4" id="Phone_cont" name="phone" placeholder="Phone" required="required"/>
+                <span class="error"><?php echo $phoneErr; ?></span>
                 
-                <input type="text" class="form-control  border-0 border-round contact mt-4" id="Subject" placeholder="Subject" value="<?php echo $subject; ?>" required/>
+                <input type="text" class="form-control  border-0 border-round contact mt-4" id="Subject" name="subject" placeholder="Subject" required="required"/>
                 <span class="error"><?php echo $subjectErr; ?></span>
 
                 <label class="mt-4 for="textarea">Message</label>
-                <textarea class="form-control border-0 border-round mt-4 contact" rows="6" placeholder="Enter your message"> </textarea>
+                <textarea name="message" class="form-control border-0 border-round mt-4 contact" rows="6" required="required"> </textarea>
                 <span class="error"><?php echo $messageErr; ?></span>
 
-                <a type="submit" class="btn btn-outline-success mt-3 w-100" onclick="alert('The data has been submitted');" value="Submit"/>Submit</a>
+                <input type="submit" class="btn btn-outline-success mt-3 w-100"  value="Submit"/>
             </form>
         </div>
         <div class="col-xl-5 ps-5 pt-3" style="color: #6488EA;">
